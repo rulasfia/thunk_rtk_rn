@@ -1,8 +1,7 @@
 // @ts-check
 import { configureStore } from "@reduxjs/toolkit";
-import { postApi } from "./post.service";
+import { postApi } from "./posts/post.service";
 // import { setupListeners } from '@reduxjs/toolkit/query'
-// import { pokemonApi } from "./services/pokemon";
 
 export const store = configureStore({
 	reducer: {
