@@ -1,14 +1,12 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { axiosBaseQuery } from "./api";
+import { baseQuery } from "./api";
 
 export const postApi = createApi({
 	reducerPath: "postApi",
-	baseQuery: fetchBaseQuery({
-		baseUrl: "https://jsonplaceholder.typicode.com",
-	}),
+	baseQuery: baseQuery.getAxios(),
 	endpoints: (builder) => ({
 		getAllPost: builder.query({
-			query: () => `/posts`,
+			query: () => ({ method: "GET", url: `/posts` }),
 			/**
 			 * Transform api response & pick first 20 item
 			 * @param {import("../components/PostList").Post[]} response
@@ -20,10 +18,10 @@ export const postApi = createApi({
 				return validResponse;
 			},
 		}),
-		getPost: builder.query({
-			query: (postId) => `/posts/${postId}`,
+		getPostDetail: builder.query({
+			query: (postId) => ({ method: "GET", url: `/posts/${postId}` }),
 		}),
 	}),
 });
 
-export const { useGetAllPostQuery } = postApi;
+export const { useGetAllPostQuery, useGetPostDetailQuery } = postApi;

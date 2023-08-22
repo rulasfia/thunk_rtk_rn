@@ -3,13 +3,14 @@ import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
 import { Provider } from "react-redux";
 import { store } from "../rtk/rtk.store";
-import { useGetAllPostQuery } from "../rtk/post.service";
+import { useGetAllPostQuery, useGetPostDetailQuery } from "../rtk/post.service";
 import { Loading, PostList } from "../components/PostList";
 
 function RTKDemo() {
 	const { data, isLoading, isError } = useGetAllPostQuery();
+	const { data: detail } = useGetPostDetailQuery("2");
 
-	console.log("RTK:", { isLoading, isError });
+	console.log("RTK:", { isLoading, isError, detail });
 
 	return (
 		<View style={styles.container}>

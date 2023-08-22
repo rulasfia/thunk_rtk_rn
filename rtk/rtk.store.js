@@ -1,7 +1,6 @@
 // @ts-check
 import { configureStore } from "@reduxjs/toolkit";
 import { postApi } from "./post.service";
-// Or from '@reduxjs/toolkit/query/react'
 // import { setupListeners } from '@reduxjs/toolkit/query'
 // import { pokemonApi } from "./services/pokemon";
 

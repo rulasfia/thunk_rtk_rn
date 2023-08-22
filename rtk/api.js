@@ -1,19 +1,42 @@
 import Axios from "axios";
 
-export function axiosBaseQuery() {
-	return async ({ url, method, data, params }) => {
-		try {
-			Axios.defaults.baseURL = "https://jsonplaceholder.typicode.com";
-			const result = await Axios({
-				url,
-				method,
-				data,
-				params,
-			});
-			return { data: result.data };
-		} catch (axiosError) {
-			const error = axiosError;
-			return { error };
-		}
-	};
-}
+/**
+ * @typedef {{
+ * 	url: string
+ * 	method: 'POST' | 'GET' | 'PATH' | 'PUT' | 'DELETE'
+ * 	data: object
+ * 	params: any,
+ * 	headers: object
+ * }} BaseQueryParams
+ */
+
+let axios = Axios.create({
+	baseURL: "https://jsonplaceholder.typicode.com",
+});
+
+export const baseQuery = {
+	updateHeaders: (headers) => {
+		axios.defaults.headers = headers;
+	},
+	/**
+	 *
+	 * @returns {import("@reduxjs/toolkit/dist/query").BaseQueryFn<BaseQueryParams>}
+	 */
+	getAxios: () => {
+		return async ({ url, method, data, params, headers }) => {
+			try {
+				const result = await axios({
+					url,
+					method,
+					data,
+					params,
+					headers,
+				});
+				return { data: result.data };
+			} catch (axiosError) {
+				const error = axiosError;
+				return { error };
+			}
+		};
+	},
+};
