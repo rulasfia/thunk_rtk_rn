@@ -14,13 +14,22 @@
 ### Const - Thunk
 
 - A lot of boilerplate code
+- Designed for delayed or asynchronous action
 - Need to manually retrieve data and request status from the store
 - Manual refetching after user mutation
-- …
+- Hard to get type safety right
+- Overall larger code needed
 
 ### Pros - RTK
 
 - Simpler setup
+- Designed and built for async state management
 - Request status included with data from custom hooks
 - Auto revalidation on user mutation
-- …
+- Easier type safety
+- Overall larger code needed
+
+### Reference:
+
+- RTK Query Docs: [https://redux-toolkit.js.org/rtk-query/overview](https://redux-toolkit.js.org/rtk-query/overview)
+- Understand the RTK Query Mental Model Compared to Redux Thunks: [https://egghead.io/lessons/redux-understand-the-rtk-query-mental-model-compared-to-redux-thunks](https://egghead.io/lessons/redux-understand-the-rtk-query-mental-model-compared-to-redux-thunks)
