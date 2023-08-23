@@ -18,7 +18,7 @@
 - Need to manually retrieve data and request status from the store
 - Manual refetching after user mutation
 - Hard to get type safety right
-- Overall larger code needed
+- Overall larger code needed & slower development time
 
 ### Why Redux + RTK
 
@@ -27,7 +27,7 @@
 - Request status included with data from custom hooks
 - Auto revalidation on user mutation
 - Easier type safety
-- Overall larger code needed
+- Overall smaller code needed & faster development time
 
 ### Results
 
