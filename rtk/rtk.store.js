@@ -1,7 +1,7 @@
 // @ts-check
 import { configureStore } from "@reduxjs/toolkit";
 import { postApi } from "./posts/post.service";
-// import { setupListeners } from '@reduxjs/toolkit/query'
+import { setupListeners } from "@reduxjs/toolkit/query";
 
 export const store = configureStore({
 	reducer: {
@@ -14,4 +14,4 @@ export const store = configureStore({
 		getDefaultMiddleware().concat(postApi.middleware),
 });
 
-// setupListeners(store.dispatch)
+setupListeners(store.dispatch);

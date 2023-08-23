@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { StatusBar } from "expo-status-bar";
 import { Text, View } from "react-native";
 import { Provider, connect } from "react-redux";
-import storeConfig from "../thunk/store";
+import storeConfig from "../thunk/thunk.store";
 import { styles } from "./Thunk.styles";
 import {
 	createErrorMessageSelector,

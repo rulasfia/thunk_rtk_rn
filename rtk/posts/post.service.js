@@ -1,4 +1,4 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { createApi } from "@reduxjs/toolkit/query/react";
 import { baseQuery } from "../api";
 
 export const postApi = createApi({
@@ -10,10 +10,8 @@ export const postApi = createApi({
 			/**
 			 * Transform api response & pick first 20 item
 			 * @param {import("../../components/PostList").Post[]} response
-			 * @param {import("@reduxjs/toolkit/dist/query").FetchBaseQueryMeta | undefined} meta
-			 * @param {*} arg
 			 */
-			transformResponse: (response, meta, arg) => {
+			transformResponse: (response) => {
 				const validResponse = response.slice(0, 20);
 				return validResponse;
 			},
